@@ -92,7 +92,7 @@ def processArgState(args) :
       print("Error, force cpu and cuda cannot both be set")
       quit()
   
-  args.use_cuda = torch.cuda.is_available() # global flag
+  args.use_cuda = torch.cuda.is_available() or torch.xpu.is_available() # global flag
   if not args.silent:
     if args.use_cuda:
       print('GPU is available.') 

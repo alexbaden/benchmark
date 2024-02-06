@@ -1,7 +1,7 @@
 import os
 import torch
 
-USE_CUDA = torch.cuda.is_available()
+USE_CUDA = torch.cuda.is_available() or torch.xpu.is_available()
 
 
 def prRed(prt):

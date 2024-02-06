@@ -27,7 +27,7 @@ if args.script:
 optimizer = optim.Adam(net.parameters(), lr=3e-6)
 batch_size = 64
 
-use_cuda = torch.cuda.is_available()
+use_cuda = torch.cuda.is_available() or torch.xpu.is_available()
 step = 0
 
 

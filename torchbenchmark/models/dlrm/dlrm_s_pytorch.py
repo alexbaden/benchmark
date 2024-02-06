@@ -629,7 +629,7 @@ if __name__ == "__main__":
         # if the parameter is not set, use the same parameter for training
         args.test_num_workers = args.num_workers
 
-    use_gpu = args.use_gpu and torch.cuda.is_available()
+    use_gpu = args.use_gpu and (torch.cuda.is_available() or torch.xpu.is_available())
     if use_gpu:
         torch.cuda.manual_seed_all(args.numpy_rand_seed)
         torch.backends.cudnn.deterministic = True
